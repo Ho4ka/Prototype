@@ -8,7 +8,15 @@ function applyTemplates($, myDiagram){
             $(go.Shape, 'RoundedRectangle', { fill: 'white' },
                 new go.Binding('fill', 'color')
             ),
-            $(go.TextBlock, 'text', { margin: 10 },
+            $(go.TextBlock, 'text', { margin: 5,
+                    text: "verticalAlignment: Center",
+                    verticalAlignment: go.Spot.Center,
+                    stroke: 'white',
+                    background: 'black',
+                    width: 100, height: 50,
+                    textAlign: "center"
+                },
+
                 new go.Binding('text', 'key')
             )
         );
@@ -22,4 +30,6 @@ function applyTemplates($, myDiagram){
                 new go.Binding('fill', 'color')
             )
         );
+
+
 }
