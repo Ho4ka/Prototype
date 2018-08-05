@@ -11,8 +11,20 @@
 
 </head>
 <body onload="init()">
+<input type="text" id="nodeName" placeholder="name">
+<input type="text" id="nodeLocation" placeholder="Location">
+<button onclick="addNode()"> Add Node</button>
 
-<div id="myDiagramDiv" style="width: 100%; height: 500px; border: 1px solid black"></div>
+<input type="text" id="firstBlock" placeholder="from">
+<input type="text" id="secondBlock" placeholder="to">
+<button onclick="addLink()" id="addLink">Add Connector</button>
+
+<input type="text" placeholder="Rename Node" id="renameNode">
+<button onclick="rename()" id="rename"> Rename Selected Node</button>
+
+<div contextmenu="menu" ondblclick="createNodeOnDblClk(event)" id="myDiagramDiv" style="width: 100%; height: 500px; border: 1px solid black">
+
+</div>
 
 
 

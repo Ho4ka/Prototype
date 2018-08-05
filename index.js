@@ -16,12 +16,11 @@ function init() {
     nodeDataArray.forEach( node => { myDiagram.model.addNodeData(node); });
     linkDataArray.forEach( link => { myDiagram.model.addLinkData(link) });
 
-    setTimeout(() => {
-        myDiagram.model.addNodeData(createNode('Block-4', {x:800, y:200}));
-    }, 1000)
-
     applyTemplates($, myDiagram);
 
 
 
+    myDiagram.addDiagramListener("ChangedSelection" ,(event) => {
+        console.log(event);
+    });
 }
