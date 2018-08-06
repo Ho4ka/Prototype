@@ -16,11 +16,31 @@ function init() {
     nodeDataArray.forEach( node => { myDiagram.model.addNodeData(node); });
     linkDataArray.forEach( link => { myDiagram.model.addLinkData(link) });
 
-    setTimeout(() => {
-        myDiagram.model.addNodeData(createNode('Block-4', {x:800, y:200}));
-    }, 1000)
-
     applyTemplates($, myDiagram);
+
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let json = JSON.parse(this.responseText);
+            let nodes = json.components;
+            nodes.forEach( (node) => {
+
+                console.log(node.position.x);
+            })
+
+            console.log(nodes);
+
+        }
+    };
+    xmlhttp.open("GET", "https://api.myjson.com/bins/16ops8", true);
+    xmlhttp.send();
+
+
+    myDiagram.addDiagramListener("ChangedSelection" ,(event) => {
+        console.log(event);
+    });
+
 
 
 
