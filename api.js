@@ -47,7 +47,9 @@ function rename() {
         let node = it.value;
         renameNode(node.key ,name);
     }
+
 }
+
 
 
 

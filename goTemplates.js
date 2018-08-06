@@ -1,7 +1,5 @@
 function applyTemplates($, myDiagram) {
 
-
-
     myDiagram.nodeTemplate =
         $(
             go.Node,
@@ -30,6 +28,7 @@ function applyTemplates($, myDiagram) {
     myDiagram.linkTemplate =
         $(go.Link,
             $(go.Shape, {strokeWidth: 2},
+
                 new go.Binding('stroke', 'color')
             ),
             $(go.Shape, {toArrow: 'Standard', stroke: null},

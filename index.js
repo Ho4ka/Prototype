@@ -44,4 +44,7 @@ function init() {
 
 
 
+    myDiagram.addDiagramListener("ChangedSelection" ,(event) => {
+        console.log(event);
+    });
 }
