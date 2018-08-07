@@ -1,6 +1,6 @@
 
-const nodeColor = '#f5ef78';
-const lineColor = '#050402';
+const nodeColor = '#ACBBC4';
+const lineColor = '#222222';
 
 function createNode(key, location = { x:0, y: 0 }){
     return { key, text: key, color: nodeColor, location: `${location.x} ${location.y}` };
