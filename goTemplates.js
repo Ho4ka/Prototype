@@ -42,10 +42,10 @@ function applyTemplates($, myDiagram) {
             ),
             $(go.TextBlock, "output",
                 { segmentIndex: 0,
-                    font: "bold 12pt serif",segmentOffset: new go.Point(NaN, NaN),
+                    font: "bold 12pt serif",segmentOffset: new go.Point(40, 10),
                     segmentOrientation: go.Link.OrientUpright }),
             $(go.TextBlock, "input",
-                { segmentIndex: -1, font: "bold 12pt serif", segmentOffset: new go.Point(NaN, NaN),
+                { segmentIndex: -1, font: "bold 12pt serif", segmentOffset: new go.Point(-40, 10),
                     segmentOrientation: go.Link.OrientUpright }),
             $(go.Shape, {toArrow: 'RoundedTriangle', stroke: null},
                 new go.Binding('fill', 'color')

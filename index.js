@@ -33,6 +33,7 @@ function init() {
 
             })
 
+            // Can be reduce() ???  (note for my self)
             for (let i = 0; i < nodes.length; i++) {
                 let from = nodes[i].name;
                 let to = nodes[i + 1].name;
@@ -46,6 +47,5 @@ function init() {
     myDiagram.addDiagramListener("ChangedSelection", (event) => {
     });
 
-    myDiagram.addDiagramListener("ChangedSelection", (event) => {
-    });
+
 }
