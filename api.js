@@ -50,6 +50,33 @@ function rename() {
 
 }
 
+function callToJSON() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            let json = JSON.parse(this.responseText);
+            let nodes = json.components;
+
+            nodes.forEach((node) => {
+                let nodeName = node.name;
+                let location = node.position;
+                myDiagram.model.addNodeData(createNode(nodeName, location));
+
+            })
+
+            for (let i = 0; i < nodes.length; i++) {
+                if (nodes[i] === nodes[nodes.length -1]) {
+                    break;
+                }
+                let from = nodes[i].name;
+                let to = nodes[i + 1].name;
+                myDiagram.model.addLinkData(createLink(from, to));
+            }
+        }
+    };
+    xmlhttp.open("GET", "https://api.myjson.com/bins/1e4w3s", true);
+    xmlhttp.send();
+}
 
 
 

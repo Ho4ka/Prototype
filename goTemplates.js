@@ -1,5 +1,49 @@
 function applyTemplates($, myDiagram) {
     myDiagram.grid.visible = true;
+
+
+    myDiagram.add(
+        $(go.Part, "Vertical",
+            $(go.TextBlock, { text: "a Text Block", width: 200, height:25, alignment: go.Spot.Left,background: "lightblue"}),
+            $(go.TextBlock, { text: "a Text Block", width: 200, height:25, alignment: go.Spot.Left, background: "lightblue"}),
+            $(go.TextBlock, { text: "a Text Block", width: 200, height:25, alignment: go.Spot.Left, background: "lightblue" }),
+            $(go.TextBlock, { text: "a Text Block", width: 200, height:25, alignment: go.Spot.Left, background: "lightblue" })
+        ));
+
+
+    myDiagram.add(
+        $(go.Part,
+            $(go.Panel, "Table",
+                { defaultAlignment: go.Spot.Left },
+                $(go.RowColumnDefinition, { column: 0, width: 170 }),
+                $(go.RowColumnDefinition, { column: 1, width: 15 }),
+                $(go.Panel, "Auto",
+                    { row: 0, column: 0, stretch: go.GraphObject.Horizontal  },
+                    $(go.Shape, "Rectangle", { fill: "lightblue" }),
+                    $(go.TextBlock, "Auto Panel")
+                ),
+                $(go.TextBlock,  { row: 0, column: 2 }),
+                $(go.Panel, "Auto",
+                    { row: 1, column: 0, stretch: go.GraphObject.Horizontal },
+                    $(go.Shape, "Rectangle", { fill: "lightblue" }),
+                    $(go.TextBlock, "Auto Panel")
+                ),
+                $(go.TextBlock,  { row: 1, column: 2 }),
+                $(go.Panel, "Auto",
+                    { row: 2, column: 0, stretch: go.GraphObject.Horizontal  },
+                    $(go.Shape, "Rectangle", { fill: "lightblue" }),
+                    $(go.TextBlock, "Auto Panel")
+                ),
+                $(go.TextBlock, { row: 2, column: 2 }),
+                $(go.Panel, "Auto",
+                    { row: 3, column: 0, stretch: go.GraphObject.Horizontal },
+                    $(go.Shape, "Rectangle", { fill: "yellow" }),
+                    $(go.TextBlock, "Auto Panel")
+                ),
+                $(go.TextBlock, { row: 3, column: 2 })
+            )
+        ));
+
     myDiagram.nodeTemplate =
         $(
             go.Node,
@@ -8,21 +52,21 @@ function applyTemplates($, myDiagram) {
             $(go.Shape, 'Rectangle', {fill: '#222222'},
                 new go.Binding('fill', 'color')
             ),
-            $(go.TextBlock, 'text',"A Title", { font: "bold 24pt sans-serif", stroke: "green" }, {
+            $(go.TextBlock,  {
                     name: 'textBlock',
-                    font: "bold 14pt serif",
-                    margin: 7,
-                    text: "verticalAlignment: Center",
-                    verticalAlignment: go.Spot.Center,
+                    font: "bold 10pt serif",
+                    margin: 5,
+                    text: "verticalAlignment: Top",
+                    verticalAlignment: go.Spot.Top,
                     stroke: '#222222',
                     background: '#F9FAFB',
-                    width: 150, height: 80,
-                    textAlign: "center",
-
+                    width: 200, height: 80,
+                    textAlign: "left",
                 },
-
                 new go.Binding('text', 'text')
-            )
+            ),
+
+
         );
 
     myDiagram.linkTemplate =
@@ -31,27 +75,20 @@ function applyTemplates($, myDiagram) {
                 new go.Binding('stroke', 'color')
             ),
             $(go.Panel, "Auto",  // this whole Panel is a link label
-                $(go.Shape, "Rectangle", { fill: "#E4E8EB", stroke: "gray" }),
+                $(go.Shape, "Rectangle", { fill: "#F4F6F7", stroke: "gray" }),
                 $(go.TextBlock,{
-                        margin: 13,
-                        width: 80, height: 30,
+                        margin: 5,
+                        font: "bold 10pt serif",
+                        width: 130, height: 30,
                         verticalAlignment: go.Spot.Center,
                         textAlign: "center",
                         text: 'Output  \n  Input ' },
                     new go.Binding("text", "text"))
             ),
-            $(go.TextBlock, "output",
-                { segmentIndex: 0,
-                    font: "bold 12pt serif",segmentOffset: new go.Point(40, 10),
-                    segmentOrientation: go.Link.OrientUpright }),
-            $(go.TextBlock, "input",
-                { segmentIndex: -1, font: "bold 12pt serif", segmentOffset: new go.Point(-40, 10),
-                    segmentOrientation: go.Link.OrientUpright }),
+         
             $(go.Shape, {toArrow: 'RoundedTriangle', stroke: null},
                 new go.Binding('fill', 'color')
-            ),
-            $(go.Shape,   // the "from" end arrowhead
-                { fromArrow: "Chevron" })
+            )
         );
 
 
