@@ -64,10 +64,8 @@ function callToJSON() {
 
             })
 
-            for (let i = 0; i < nodes.length; i++) {
-                if (nodes[i] === nodes[nodes.length -1]) {
-                    break;
-                }
+            for (let i = 0; i < nodes.length - 1; i++) {
+
                 let from = nodes[i].name;
                 let to = nodes[i + 1].name;
                 myDiagram.model.addLinkData(createLink(from, to));
