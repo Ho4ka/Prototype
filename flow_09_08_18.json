@@ -1,0 +1,46 @@
+{
+    "components": [
+        {
+            "id": "4028fd1b651e929701651e93719b0000",
+            "name": "Comp-1",
+            "templateId": "Temp-1",
+            "position": {
+                "x": 15.5554456,
+                "y": -3.4645845
+            }
+        },
+        {
+            "id": "4028fd1b651e929701651e9386240001",
+            "name": "Comp-2",
+            "templateId": "Temp-2",
+            "position": {
+                "x": 15.5554456,
+                "y": -3.4645845
+            }
+        }
+    ],
+    "connections": [
+        {
+            "id": "4028fd1b651e929701651e93af060002",
+            "source": {
+                "componentId": "4028fd1b651e929701651e93719b0000",
+                "port": "Output"
+            },
+            "target": {
+                "componentId": "4028fd1b651e929701651e93719b0000",
+                "port": "Input"
+            }
+        },
+        {
+            "id": "4028fd1b651e929701651e93c6950003",
+            "source": {
+                "componentId": "4028fd1b651e929701651e93719b0000",
+                "port": "Output"
+            },
+            "target": {
+                "componentId": "4028fd1b651e929701651e9386240001",
+                "port": "Input"
+            }
+        }
+    ]
+}

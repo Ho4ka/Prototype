@@ -1,5 +1,5 @@
 
-const nodeColor = '#ACBBC4';
+const nodeColor = '#A6B1B8';
 const lineColor = '#222222';
 
 function createNode(key, location = { x:0, y: 0 }){
@@ -65,7 +65,6 @@ function callToJSON() {
             })
 
             for (let i = 0; i < nodes.length - 1; i++) {
-
                 let from = nodes[i].name;
                 let to = nodes[i + 1].name;
                 myDiagram.model.addLinkData(createLink(from, to));
