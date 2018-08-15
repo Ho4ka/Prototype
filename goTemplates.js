@@ -24,7 +24,7 @@ function applyTemplates($, myDiagram) {
     );
 
     myDiagram.linkTemplate =
-        $(go.Link,new go.Binding('text', 'text'), {isShadowed: true,shadowColor: "#828283",shadowOffset: new go.Point(1,1)},
+        $(go.Link, {isShadowed: true,shadowColor: "#828283",shadowOffset: new go.Point(1,1)},
             $(go.Shape, {strokeWidth: 2},
                 new go.Binding('stroke', 'color')
             ),
@@ -32,13 +32,13 @@ function applyTemplates($, myDiagram) {
                 $(go.Panel, "Auto",
                     {row: 0, column: 0, width:170, height: 20, stretch: go.GraphObject.Horizontal},
                     $(go.Shape, "Rectangle", {fill: "#edeff0",strokeWidth: 0}),
-                    $(go.TextBlock, {margin:3,alignment: go.Spot.Left,font: "bold 8pt sans-serif"},  new go.Binding('text', 'text')),
+                    $(go.TextBlock, {margin:3,alignment: go.Spot.Left,font: "bold 8pt sans-serif"},new go.Binding('text', 'text') ),
 
                 ),
                 $(go.Panel, "Auto",
                     {row: 1, column: 0, height: 20, stretch: go.GraphObject.Horizontal},
                     $(go.Shape, "Rectangle", {fill: "#faf9fa",strokeWidth: 0}),
-                    $(go.TextBlock ,{margin:3,alignment: go.Spot.Left,font: "bold 8pt sans-serif"}, new go.Binding('text', 'text'))
+                    $(go.TextBlock ,{margin:3,alignment: go.Spot.Left,font: "bold 8pt sans-serif"}, new go.Binding('text', 'textToPort'))
 
                 )
                 ),

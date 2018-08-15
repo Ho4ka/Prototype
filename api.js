@@ -7,13 +7,9 @@ function createNode(key, location = { x:0, y: 0 }){
     return { key, text: key, color: nodeColor, location: `${location.x} ${location.y}` };
 };
 
-function createLink(from, to, port, targetPort){
-    return { from , to, text: port, text: targetPort, color: lineColor }
+function createLink(from, to, port,toPort){
+    return { from , to, text: port, textToPort: toPort, color: lineColor }
 };
-
-// function connectorName(port){
-//     return { text:port }
-// }
 
 function addNode() {
     let name = document.getElementById('nodeName').value;
@@ -52,7 +48,6 @@ function rename() {
         let node = it.value;
         renameNode(node.key ,name);
     }
-
 }
 
 function callToJSON() {
@@ -74,7 +69,7 @@ function callToJSON() {
                 let from = connect.source.componentId;
                 let to = connect.target.componentId;
                 let port = connect.source.port;
-                let targetPort = connect.target.port;
+                let toPort = connect.target.port;
 
                 nodes.forEach((node)=> {
                      if (from === node.id) {
@@ -84,10 +79,13 @@ function callToJSON() {
                      }
                 })
 
-                myDiagram.model.addLinkData(createLink(from, to, port, targetPort));
+                port = "From:            " + connect.source.port;
+                toPort = "To:                 "+ connect.target.port;
+                myDiagram.model.addLinkData(createLink(from, to, port, toPort));
+
             })
         }
     };
-    xmlhttp.open("GET", "https://api.myjson.com/bins/1e3y8c", true);
+    xmlhttp.open("GET", "https://api.myjson.com/bins/qgf50", true);
     xmlhttp.send();
 }

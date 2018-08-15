@@ -51,18 +51,6 @@
                 "componentId": "4028fd1b651e929701651e9386240003",
                 "port": "ReadAuth"
             }
-        },
-        {
-            "id": "4028fd1b651e929701651e9386240003",
-            "source": {
-                "componentId": "4028fd1b651e929701651e9386240003",
-                "port": "PutAuth"
-            },
-            "target": {
-                "componentId": "4028fd1b651e929701651e93719b0000",
-                "port": "ReadAuth"
-            }
         }
-
     ]
 }
