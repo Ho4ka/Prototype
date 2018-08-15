@@ -7,7 +7,7 @@ function createNode(key, location = { x:0, y: 0 }){
     return { key, text: key, color: nodeColor, location: `${location.x} ${location.y}` };
 };
 
-function createLink(from, to, port,toPort){
+function createLink(from, to, port, toPort){
     return { from , to, text: port, textToPort: toPort, color: lineColor }
 };
 
@@ -79,8 +79,11 @@ function callToJSON() {
                      }
                 })
 
-                port = "From:            " + connect.source.port;
-                toPort = "To:                 "+ connect.target.port;
+              let  fromString = `From :            `;
+               let toString = `To :                 `;
+
+               port = fromString + port;
+               toPort = toString + toPort;
                 myDiagram.model.addLinkData(createLink(from, to, port, toPort));
 
             })
