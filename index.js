@@ -10,6 +10,8 @@ function init() {
         )
     });
 
+
+
     applyTemplates($, myDiagram);
     callToJSON();
 

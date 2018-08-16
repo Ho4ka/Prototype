@@ -79,11 +79,6 @@ function callToJSON() {
                      }
                 })
 
-              let  fromString = `From :            `;
-               let toString = `To :                 `;
-
-               port = fromString + port;
-               toPort = toString + toPort;
                 myDiagram.model.addLinkData(createLink(from, to, port, toPort));
 
             })
