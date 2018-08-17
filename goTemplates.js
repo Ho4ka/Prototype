@@ -15,17 +15,18 @@ function applyTemplates($, myDiagram) {
             new go.Binding('text', 'text'))
     );
 
-    // This is the actual HTML context menu:
+
+// This is the actual HTML context menu:
     var cxElement = document.getElementById("contextMenu");
-    // Since we have only one main element, we don't have to declare a hide method,
-    // we can set mainElement and GoJS will hide it automatically
+// Since we have only one main element, we don't have to declare a hide method,
+// we can set mainElement and GoJS will hide it automatically
     var myContextMenu = $(go.HTMLInfo, {
         show: showContextMenu,
         mainElement: cxElement
     });
 
     myDiagram.contextMenu = myContextMenu;
-    // We don't want the div acting as a context menu to have a (browser) context menu!
+// We don't want the div acting as a context menu to have a (browser) context menu!
     cxElement.addEventListener("contextmenu", function (e) {
         e.preventDefault();
         return false;
@@ -46,26 +47,21 @@ function applyTemplates($, myDiagram) {
         cxElement.style.top = mousePt.y + "px";
     }
 
-    // This is the general menu command handler, parameterized by the name of the command.
-    function cxcommand(event, val) {
-        if (val === undefined) val = event.currentTarget.id;
-        var diagram = myDiagram;
-        switch (val) {
-            case "cut":
-                diagram.commandHandler.cutSelection();
-                break;
-            case "copy":
-                diagram.commandHandler.copySelection();
-                break;
-            case "paste":
-                diagram.commandHandler.pasteSelection(diagram.lastInput.documentPoint);
-                break;
-            case "delete":
-                diagram.commandHandler.deleteSelection();
-                break;
-        }
-        diagram.currentTool.stopTool();
-    }
+
+
+
+    myDiagram.nodeTemplate.contextMenu =
+        $(go.Adornment, "Vertical",
+            $("ContextMenuButton",
+                $(go.TextBlock, "Rename"),
+                { click: function(e, obj) { e.diagram.commandHandler.editTextBlock(); } },
+                new go.Binding("visible", "", function(o) { return o.diagram && o.diagram.commandHandler.canEditTextBlock(); }).ofObject()),
+            // add one for Editing...
+            $("ContextMenuButton",
+                $(go.TextBlock, "Delete"),
+                { click: function(e, obj) { e.diagram.commandHandler.deleteSelection(); } },
+                new go.Binding("visible", "", function(o) { return o.diagram && o.diagram.commandHandler.canDeleteSelection(); }).ofObject())
+        );
 
     myDiagram.nodeTemplate = $(go.Node, "Table",
         {contextMenu: myContextMenu},

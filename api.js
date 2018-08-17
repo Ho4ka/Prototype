@@ -2,14 +2,14 @@
 const nodeColor = '#A6B1B8';
 const lineColor = '#222222';
 
-
 function createNode(key, location = { x:0, y: 0 }){
     return { key, text: key, color: nodeColor, location: `${location.x} ${location.y}` };
-};
+}
+
 
 function createLink(from, to, port, toPort){
     return { from , to, text: port, textToPort: toPort, color: lineColor }
-};
+}
 
 function addNode() {
     let name = document.getElementById('nodeName').value;
@@ -63,7 +63,7 @@ function callToJSON() {
                 let location = node.position;
                 myDiagram.model.addNodeData(createNode(nodeName, location));
 
-            })
+            });
 
             connections.forEach((connect) => {
                 let from = connect.source.componentId;
@@ -77,7 +77,7 @@ function callToJSON() {
                      } else if (to === node.id) {
                          to = node.name;
                      }
-                })
+                });
 
                 myDiagram.model.addLinkData(createLink(from, to, port, toPort));
 
@@ -87,3 +87,4 @@ function callToJSON() {
     xmlhttp.open("GET", "https://api.myjson.com/bins/qgf50", true);
     xmlhttp.send();
 }
+

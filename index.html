@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.8.26/go.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.8.26/go-debug.js"></script>
+    <script src="./frameworks/goJs.js"></script>
+    <script src="./frameworks/goJsDebug.js"></script>
 
     <script src="./goTemplates.js"></script>
     <script src='./index.js'></script>
@@ -28,10 +28,10 @@
 </div>
 <div id="contextMenu">
     <ul>
-        <li id="cut" onclick="cxcommand(event)"><a href="#" target="_self">Cut</a></li>
-        <li id="copy" onclick="cxcommand(event)"><a href="#" target="_self">Copy</a></li>
-        <li id="paste" onclick="cxcommand(event)"><a href="#" target="_self">Paste</a></li>
-        <li id="delete" onclick="deleteNode()"><a href="#" target="_self">Delete</a></li>
+        <li id="cut" onclick=""><a href="#" target="_self">Cut</a></li>
+        <li id="copy" onclick=""><a href="#" target="_self">Rename</a></li>
+        <li id="paste" onclick="myDiagram.commandHandler.editTextBlock()"><a href="#" target="_self">Rename</a></li>
+        <li id="delete" onclick="myDiagram.commandHandler.deleteSelection()"><a href="#" target="_self">Delete</a></li>
     </ul>
 </div>
 </div>

@@ -1,6 +1,7 @@
 function init() {
     $ = go.GraphObject.make;
     myDiagram = $(go.Diagram, "myDiagramDiv", {
+        maxSelectionCount: 1,
         grid: $(go.Panel, "Grid",
             { gridCellSize: new go.Size(14, 14) }, {
                 background:"#fffeff"
